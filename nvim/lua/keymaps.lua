@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+vim.api.nvim_set_keymap('n', '<leader>r', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", {noremap=false})
 -- twilight
 vim.api.nvim_set_keymap("n", "tw", ":Twilight<enter>", {noremap=false})
