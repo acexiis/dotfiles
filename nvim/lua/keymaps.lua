@@ -1,4 +1,9 @@
 vim.g.mapleader = " "
+-- Map Tab to switch to the next buffer
+vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<CR>', { noremap = true, silent = true })
+-- Map Shift+Tab to switch to the previous buffer
+vim.api.nvim_set_keymap('n', '<BS>', ':bprevious<CR>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', '<leader>r', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", {noremap=false})
 -- twilight
