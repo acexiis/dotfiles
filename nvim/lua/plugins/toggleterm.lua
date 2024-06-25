@@ -3,11 +3,22 @@ require'toggleterm'.setup {
   open_mapping = [[<c-\>]],
   shade_filetypes = {},
   shade_terminals = true,
-  shading_factor = '1',
   start_in_insert = true,
   insert_mappings = true,
   persist_size = true,
   direction = 'float',
   close_on_exit = true,
-  shell = vim.o.shell
+  shell = vim.o.shell,
+  auto_scroll = true,
+  hide_numbers = true,
+  shading_factor = 2,
+  float_opts = {
+      border = "curved",
+      winblend = 0,
+      highlights = {
+          border = "Normal",
+          background = "Normal",
+      },
+  },
+
 }
