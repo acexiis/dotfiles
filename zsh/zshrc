@@ -1,0 +1,97 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Terminal and Zsh configuration
+export TERM="xterm-256color"
+export ZSH="$HOME/.oh-my-zsh"
+
+# Archey system information
+/opt/homebrew/bin/archey
+
+# Source additional configuration files
+files=(
+  source.zsh
+  pyenv.zsh
+  aliases.zsh
+)
+for file in ${files[@]}; do
+  if [ -f "$HOME/.zsh/includes/$file" ]; then
+    source "$HOME/.zsh/includes/$file"
+  else
+    echo "file: $file not found"
+  fi
+done
+
+# Custom functions
+killp() {
+  ps aux | grep -i $1 | awk '{print $2}' | xargs kill -9
+}
+
+cgpt() {
+  echo $1 | aichat
+}
+
+ipcheck() {
+  curl ipinfo.io/$1
+}
+
+# Plugins
+plugins=(
+  git
+)
+
+# Editor configuration
+export EDITOR=vim
+
+# Path configuration
+path_components=(
+  /usr/local/sbin
+  /usr/local/share/python
+  /opt/homebrew/bin
+  /usr/local/sbin
+  /usr/local/bin
+  /System/Cryptexes/App/usr/bin
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin
+  /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+  /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+  /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+  /usr/local/MacGPG2/bin
+  /usr/local/mysql/bin
+  /opt/homebrew/opt/fzf/bin
+  /usr/local/go/bin
+  /opt/homebrew/sbin
+  /Users/x.pierre/.rd/bin
+)
+export PATH=$(IFS=:; echo "${path_components[*]}")
+
+# Fzf configuration
+eval "$(fzf --zsh)"
+
+# Powerlevel10k configuration
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# iTerm2 shell integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# History configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_expire_dups_first
+setopt hist_verify
+
+# Key bindings for history search
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+

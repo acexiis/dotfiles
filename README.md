@@ -24,4 +24,5 @@ Install alacritty from https://github.com/alacritty/alacritty
 # ZSH
 ## pre-requierement
 Install zsh from https://github.com/zsh-users/zsh
-
+ ln -s ~/.config/zsh/zsh ~/.zsh
+ ln -s ~/.config/zsh/zshrc ~/.zshrc
