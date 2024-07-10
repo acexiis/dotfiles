@@ -25,7 +25,7 @@ vim.api.nvim_set_keymap("n", "B", "^", {noremap=false})
 vim.api.nvim_set_keymap("n", "TT", ":TransparentToggle<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "ss", ":noh<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "tt", ":NvimTreeToggle<CR>", {noremap=true})
-vim.api.nvim_set_keymap("n", "<C-\\>", ":ToggleTerm<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", '[[<C-\\>]]', ":ToggleTerm<CR>", { noremap = true, silent = true })
 
 --
 -- splits

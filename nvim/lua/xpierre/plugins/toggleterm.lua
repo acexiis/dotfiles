@@ -5,7 +5,8 @@ return {
     config = function()
       require'toggleterm'.setup {
         size = 13,
-        open_mapping = [[<c-\>]],
+        -- open_mapping = [[<C-\>]],
+        open_mapping = [[\\]],
         shade_filetypes = {},
         shade_terminals = true,
         start_in_insert = true,
