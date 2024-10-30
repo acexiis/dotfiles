@@ -19,7 +19,7 @@ alias trd="terraform destroy"
 
 
 # Pass aliases
-alias cpsys=" pass Northeastern/sysaccount|pbcopy"
+alias cpsys=" pass Northeastern/sysaccount| tr -d '\n' | pbcopy"
 alias cpsat=" pass Northeastern/salellite|pbcopy"
 
 

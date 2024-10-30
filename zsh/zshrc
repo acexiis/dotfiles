@@ -31,8 +31,8 @@ killp() {
   ps aux | grep -i $1 | awk '{print $2}' | xargs kill -9
 }
 
-cgpt() {
-  echo $1 | aichat
+ai() {
+  echo $1 | chatgpt
 }
 
 ipcheck() {
