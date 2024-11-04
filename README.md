@@ -4,6 +4,8 @@ git clone git@github.com:acexiis/dotfiles.git
 
 # GENERAL
 You can copy all folders into ~/.config
+rsync -avz your/git/repository .config/
+
 
 # NVIM
 ## pre-requierement
@@ -26,3 +28,4 @@ Install alacritty from https://github.com/alacritty/alacritty
 Install zsh from https://github.com/zsh-users/zsh
  ln -s ~/.config/zsh/zsh ~/.zsh
  ln -s ~/.config/zsh/zshrc ~/.zshrc
+
