@@ -44,9 +44,6 @@ plugins=(
   git
 )
 
-# Editor configuration
-export EDITOR=vim
-
 # Path configuration
 path_components=(
   /usr/local/sbin
@@ -70,6 +67,12 @@ path_components=(
   /Users/x.pierre/.rd/bin
 )
 export PATH=$(IFS=:; echo "${path_components[*]}")
+# Editor configuration
+export EDITOR=vim
+if [ -f ~/.env ]; then
+    export $(cat ~/.env | xargs)
+fi
+
 
 # Fzf configuration
 eval "$(fzf --zsh)"
@@ -95,3 +98,4 @@ setopt hist_verify
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
+source ~/.zsh-copilot/zsh-copilot.plugin.zsh
