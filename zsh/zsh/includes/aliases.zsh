@@ -1,3 +1,6 @@
+# Time tracking
+alias t="timew"
+alias ts="timew summary"
 # EZA
 alias ls="eza --color=always --long --git"
 # ZOXIDE
