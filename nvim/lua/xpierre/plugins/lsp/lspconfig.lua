@@ -9,7 +9,6 @@ return {
   },
   config = function()
     local lspconfig = require("lspconfig")
-    local lspconfigs = require("lspconfig.configs")
     local mason_lspconfig = require("mason-lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -111,7 +110,10 @@ return {
     local warned = {}
 
     local function setup_server(server, opts)
-      if not lspconfigs[server] then
+      local ok, server_module = pcall(function()
+        return lspconfig[server]
+      end)
+      if not ok or not server_module then
         if not warned[server] then
           warned[server] = true
           vim.schedule(function()
@@ -120,7 +122,7 @@ return {
         end
         return
       end
-      lspconfig[server].setup(vim.tbl_deep_extend("force", {
+      server_module.setup(vim.tbl_deep_extend("force", {
         capabilities = capabilities,
       }, opts or {}))
     end
