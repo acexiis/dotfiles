@@ -99,3 +99,5 @@ bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
 source ~/.zsh-copilot/zsh-copilot.plugin.zsh
+
+. "$HOME/.local/bin/env"
