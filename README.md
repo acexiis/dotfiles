@@ -30,4 +30,3 @@ Install zsh from https://github.com/zsh-users/zsh
  ln -s ~/.config/zsh/zshrc ~/.zshrc
  
  
- 
